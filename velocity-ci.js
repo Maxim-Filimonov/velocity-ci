@@ -97,6 +97,7 @@ ddpclient.connect(function(error) {
       var finalResult = null;
       Object.keys(aggregateReports).forEach(function(reportKey){
         var report = aggregateReports[reportKey];
+        console.log("REPORTING:", report.name, report.result);
         if (report.name == "aggregateComplete")
           isFinished = report.result == "completed";
         if (report.name == "aggregateResult")
