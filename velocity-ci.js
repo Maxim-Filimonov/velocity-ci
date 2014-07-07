@@ -102,7 +102,8 @@ ddpclient.connect(function(error) {
         if (report.name == "aggregateResult")
           finalResult = report.result;
       });
-      if (isFinished){
+      if (isFinished) {
+        console.log("FINISHED");
         psTree(meteor.pid, function(err, children) {
           var pids = [];
           for(var i = 0; i < children.length; i++) {
@@ -122,6 +123,9 @@ ddpclient.connect(function(error) {
             process.exit(1);
           }
         }, 2000);
+      }
+      else {
+        console.log("NOT FINISHED YET", msg.msg, msg.collection);
       }
     }
   });
